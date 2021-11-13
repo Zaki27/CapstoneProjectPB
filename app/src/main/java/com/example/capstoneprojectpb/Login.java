@@ -6,17 +6,18 @@ import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 public class Login extends AppCompatActivity {
-    TextView textView;
+    CardView cardView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        textView = findViewById(R.id.textView);
+        cardView = findViewById(R.id.cardView);
 
-        textView.setOnClickListener(new View.OnClickListener() {
+        cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent mainActivity = new Intent(Login.this, MainActivity.class);
