@@ -26,7 +26,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);cardView = findViewById(R.id.cardView);
+        setContentView(R.layout.activity_main);
+        cardView = findViewById(R.id.cardView);
         cardView2 = findViewById(R.id.cardView2);
         cardView3 = findViewById(R.id.cardView3);
         imageView = findViewById(R.id.imageView);
