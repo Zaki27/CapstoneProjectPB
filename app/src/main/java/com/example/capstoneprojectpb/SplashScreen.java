@@ -26,8 +26,8 @@ public class SplashScreen extends AppCompatActivity {
             public void run() {
 
                 //setelah loading maka akan langsung berpindah ke home activity
-                Intent Login=new Intent(SplashScreen.this,Login.class);
-                startActivity(Login);
+                Intent Intro=new Intent(SplashScreen.this,IntroActivity.class);
+                startActivity(Intro);
                 finish();
 
             }
