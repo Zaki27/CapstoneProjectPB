@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "32845220079",
+    "project_id": "hc-tel-notification",
+    "storage_bucket": "hc-tel-notification.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:32845220079:android:c79469439dcd1bac40f31a",
+        "android_client_info": {
+          "package_name": "com.example.capstoneprojectpb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "32845220079-kbcesugoedtp3tvsgp1r2ns71im57eso.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAO7Om-EgfLb8Jla7kN6uz-pCropCvVQrE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "32845220079-kbcesugoedtp3tvsgp1r2ns71im57eso.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
