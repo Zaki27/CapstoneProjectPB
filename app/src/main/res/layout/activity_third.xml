@@ -48,7 +48,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/open_sans_extra_bold"
-                android:text="The STRAT Hotel, Casino - SkyPod"
+                android:text="@string/name_hotel_beston"
                 android:textColor="@color/colorPrimary"
                 android:textSize="24sp" />
             <LinearLayout
@@ -105,15 +105,7 @@
                 android:layout_marginTop="10dp"
                 android:alpha="0.5"
                 android:fontFamily="@font/open_sans_regular"
-                android:text="Top of the World is known as one of the
-most romantic restaurants in the city. It offers
-an intimate dining setting paired with
-an extravagant view of the entire city, all
-encompassed in a 360-degree revolving frame.
-Yes, that’s right, this restaurant allows diners
-the opportunity to see Las Vegas in its entirety
-if they’re able to stay for at least 80 minutes,
-the time needed for one full rotation."
+                android:text="@string/complete_desc_beston"
                 android:textColor="@color/colorPrimary"
                 android:textSize="15sp" />
             <TextView
@@ -122,7 +114,7 @@ the time needed for one full rotation."
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/open_sans_bold"
-                android:text="Venue Type"
+                android:text="Location"
                 android:textColor="@color/colorPrimary"
                 android:textSize="15sp" />
             <TextView
@@ -132,7 +124,7 @@ the time needed for one full rotation."
                 android:layout_marginTop="10dp"
                 android:alpha="0.5"
                 android:fontFamily="@font/open_sans_regular"
-                android:text="Restaurant"
+                android:text="@string/loc_beston"
                 android:textColor="@color/colorPrimary"
                 android:textSize="15sp" />
             <TextView
@@ -141,7 +133,7 @@ the time needed for one full rotation."
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/open_sans_bold"
-                android:text="Type of View"
+                android:text="Facilities"
                 android:textColor="@color/colorPrimary"
                 android:textSize="15sp" />
             <TextView
@@ -151,11 +143,7 @@ the time needed for one full rotation."
                 android:layout_marginTop="10dp"
                 android:alpha="0.5"
                 android:fontFamily="@font/open_sans_regular"
-                android:text="It might surprise you, but this is the only
-revolving restaurant in Las Vegas. Located
-844 feet in the air, you’re bound to get
-a great view of the city with its massive
-floor-to-ceiling windows."
+                android:text="@string/fasilities_beston"
                 android:textColor="@color/colorPrimary"
                 android:textSize="15sp" />
             <Button
