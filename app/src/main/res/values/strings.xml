@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">CapstoneProjectPB</string>
+    <string name="desc_beston">Beston Hotel provides a most conducive spot for you to take a break from your busy days. With its location just 1 km from the city center and 10.5 km from the airport, this 4-star hotel ...
+    </string>
+    <string name="name_hotel_beston">Beston Hotel - Palembang</string>
 </resources>
