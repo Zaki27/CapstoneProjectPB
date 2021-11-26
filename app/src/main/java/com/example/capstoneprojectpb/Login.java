@@ -79,5 +79,10 @@ public class Login extends AppCompatActivity {
         }
         return result;
     }
+
+    @Override
+    public void onBackPressed() {
+        finishAffinity();
+    }
 }
 

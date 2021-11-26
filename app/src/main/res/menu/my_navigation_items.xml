@@ -37,13 +37,13 @@
     <item android:title="Communicate">
         <menu>
             <item
-                android:id="@+id/nav_share"
+                android:id="@+id/nav_about"
                 android:icon="@drawable/ic_baseline_share_24"
-                android:title="Share" />
+                android:title="About" />
             <item
-                android:id="@+id/nav_rate"
+                android:id="@+id/nav_version"
                 android:icon="@drawable/ic_baseline_rate_review_24"
-                android:title="Rate us" />
+                android:title="Version" />
         </menu>
     </item>
 </menu>

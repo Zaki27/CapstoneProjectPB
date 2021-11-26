@@ -29,7 +29,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class MainActivity extends AppCompatActivity {
     CardView cardView, cardView2, cardView3;
-    TextView textView, textView2,textView3, textView4, textView5;
+    TextView textView, textView2,textView3;
     SearchView searchView;
     Animation anim_from_button, anim_from_top, anim_from_left;
     @TargetApi(Build.VERSION_CODES.KITKAT)
@@ -44,8 +44,6 @@ public class MainActivity extends AppCompatActivity {
         textView = findViewById(R.id.firstText);
         textView2 = findViewById(R.id.textView);
         textView3 = findViewById(R.id.textView2);
-        textView4 = findViewById(R.id.textView3);
-        textView5 = findViewById(R.id.textView4);
         searchView = findViewById(R.id.searchView);
 
         //Load Animations
@@ -57,11 +55,9 @@ public class MainActivity extends AppCompatActivity {
         cardView2.setAnimation(anim_from_button);
         cardView3.setAnimation(anim_from_button);
         textView.setAnimation(anim_from_top);
-        textView2.setAnimation(anim_from_top);
         textView3.setAnimation(anim_from_top);
-        textView4.setAnimation(anim_from_top);
-        textView5.setAnimation(anim_from_top);
         searchView.setAnimation(anim_from_left);
+
         MaterialToolbar toolbar = findViewById(R.id.topAppBar);
         DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.navigation_view);
@@ -91,15 +87,16 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.settings:
                         Toast.makeText(MainActivity.this, "Settings is Clicked",Toast.LENGTH_SHORT).show();break;
                     case R.id.nav_login:
-                                Intent sActivity = new Intent(MainActivity.this, Login.class);
-                                startActivity(sActivity);break;
-                    case R.id.nav_share:
-                        Toast.makeText(MainActivity.this, "Share is clicked",Toast.LENGTH_SHORT).show();break;
-                    case R.id.nav_rate:
-                        Toast.makeText(MainActivity.this, "Rate us is Clicked",Toast.LENGTH_SHORT).show();break;
+                        Intent logActivity1 = new Intent(MainActivity.this, Login.class);
+                        startActivity(logActivity1);break;
+                    case R.id.nav_about:
+                        Intent logActivity2 = new Intent(MainActivity.this, AboutActivity.class);
+                        startActivity(logActivity2);break;
+                    case R.id.nav_version:
+                        Intent logActivity3 = new Intent(MainActivity.this, AppVersionActivity.class);
+                        startActivity(logActivity3);break;
                     default:
                         return true;
-
                 }
                 return true;
             }
@@ -112,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(secondActivity);
             }
         });
+
         //Hide status bar and navigation bar at the bottom
         getWindow().setFlags(
                 WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
@@ -125,5 +123,10 @@ public class MainActivity extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_FULLSCREEN
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
         );
+    }
+
+    @Override
+    public void onBackPressed() {
+        finishAffinity();
     }
 }
