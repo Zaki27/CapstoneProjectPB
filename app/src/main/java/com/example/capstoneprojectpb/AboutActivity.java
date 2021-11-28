@@ -59,7 +59,7 @@ public class AboutActivity extends AppCompatActivity {
                         Intent logActivity2 = new Intent(AboutActivity.this, AboutActivity.class);
                         startActivity(logActivity2);break;
                     case R.id.nav_version:
-                        Intent logActivity3 = new Intent(AboutActivity.this, AboutActivity.class);
+                        Intent logActivity3 = new Intent(AboutActivity.this, AppVersionActivity.class);
                         startActivity(logActivity3);break;
                     default:
                         return true;
