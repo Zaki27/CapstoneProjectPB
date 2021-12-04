@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,27 +22,33 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.capstoneprojectpb.adapter.HotelAdapter;
-import com.example.capstoneprojectpb.model.HotelModel;
+import com.example.capstoneprojectpb.adapter.RecyclerMoviesAdapter;
+import com.example.capstoneprojectpb.model.Response;
+import com.example.capstoneprojectpb.model.Result;
+import com.example.capstoneprojectpb.rest.ApiClient;
+import com.example.capstoneprojectpb.rest.ApiInterface;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.navigation.NavigationView;
-import com.loopj.android.http.AsyncHttpClient;
-import com.loopj.android.http.AsyncHttpResponseHandler;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.List;
 
-import java.util.ArrayList;
+import retrofit2.Call;
+import retrofit2.Callback;
 
-import cz.msebera.android.httpclient.Header;
 
 public class MainActivity extends AppCompatActivity {
-    private RecyclerView mRecyclerView;
-    private ArrayList<Hotel> mHotelsData;
-    ArrayList<HotelModel> hotelModels = new ArrayList<>();
-    private HotelAdapter hotelAdapter;
-    private HotelModel hotelModel;
+
+    private RecyclerMoviesAdapter adapter;
+
+
+    String API_KEY = "dd7c30cbeb58edd0347801dfc5453354";
+    String LANGUAGE = "en-US";
+    String CATEGORY = "popular";
+    int PAGE = 1;
+
+    RecyclerView recyclerview;
+
+    DBHelper dbHelper;
 
     CardView cardView;
     TextView textView, textView2,textView3;
@@ -58,64 +65,40 @@ public class MainActivity extends AppCompatActivity {
         textView2 = findViewById(R.id.textView);
         textView3 = findViewById(R.id.textView2);
         searchView = findViewById(R.id.searchView);
-        hotelAdapter = new HotelAdapter();
-        mRecyclerView = findViewById(R.id.recyclerView);
 
-        getUser();
-
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        mRecyclerView.setLayoutManager(linearLayoutManager); //vertikal
-
-        //menggabungkan recycleview dgn adapter
-        mRecyclerView.setAdapter(hotelAdapter);
-        //onClick
-        hotelAdapter.onClick(hotel -> {
-            Intent intent = new Intent(MainActivity.this, ThirdActivity.class);
-            intent.putExtra(ThirdActivity.STRING_HOTEL, hotel);
-            startActivity(intent);
-        });
-    }
-
-    private void getUser() {
-        AsyncHttpClient client = new AsyncHttpClient();
-        String url = "https://dev.farizdotid.com/api/purwakarta/hotel";
-        client.get(url, new AsyncHttpResponseHandler() {
+        recyclerview = findViewById(R.id.recyclerView);
+        recyclerview.setHasFixedSize(true);
+        recyclerview.setLayoutManager(new LinearLayoutManager(this));
+        searchView = findViewById(R.id.searchView);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
-            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                String respone = new String(responseBody);
-                try {
-                    parseJson(respone);
-                } catch (JSONException e) {
-                    e.printStackTrace();
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                if (newText.length() > 1){
+                    ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
+                    Call<Response> call = apiInterface.getQuery(API_KEY,LANGUAGE,newText,PAGE);
+                    call.enqueue(new Callback<Response>() {
+                        @Override
+                        public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
+                            List<Result> mList = response.body().getResults();
+                            adapter = new RecyclerMoviesAdapter(MainActivity.this, mList);
+                            recyclerview.setAdapter(adapter);
+                        }
+
+                        @Override
+                        public void onFailure(Call<Response> call, Throwable t) {
+                            t.fillInStackTrace();
+                        }
+                    });
                 }
-
-
-            }
-
-            @Override
-            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-                Toast.makeText(MainActivity.this, "Error", Toast.LENGTH_SHORT).show();
+                return true;
             }
         });
-    }
-
-    private void parseJson(String respone) throws JSONException {
-        JSONObject jsonObject = new JSONObject(respone);
-        JSONArray dataArray =jsonObject.getJSONArray("hotel");
-
-        for (int i = 0; i < dataArray.length(); i++) {
-            JSONObject dataObject =dataArray.getJSONObject(i);
-            String nama_hotel =dataObject.getString("nama");
-            String alamat = dataObject.getString("alamat");
-            String no_telp =dataObject.getString("nomor_telp");
-            String gambar_url = dataObject.getString("gambar_url");
-
-            hotelModel = new HotelModel(nama_hotel,alamat,no_telp,gambar_url);
-            hotelModels.add(hotelModel);
-        }
-
-        hotelAdapter.setData(hotelModels);
-
+        panggilRetrofit();
 
 
         //Load Animations
@@ -198,5 +181,22 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         finishAffinity();
+    }
+    private void panggilRetrofit() {
+        ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
+        Call<Response> call = apiInterface.getMovie(CATEGORY, API_KEY, LANGUAGE, PAGE);
+        call.enqueue(new Callback<Response>() {
+            @Override
+            public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
+                List<Result> mList = response.body().getResults();
+                adapter = new RecyclerMoviesAdapter(MainActivity.this, mList);
+                recyclerview.setAdapter(adapter);
+            }
+
+            @Override
+            public void onFailure(Call<Response> call, Throwable t) {
+                t.fillInStackTrace();
+            }
+        });
     }
 }

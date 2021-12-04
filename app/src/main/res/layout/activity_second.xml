@@ -5,9 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SecondActivity"
-    android:background="@drawable/background_home"
+    android:background="@color/white"
     android:transitionName="background_image_transition"
     tools:targetApi="LOLLIPOP">
+
+    <ImageView
+        android:id="@+id/imgFilmDetail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"/>
+
     <ImageView
         android:id="@+id/second_back_arrow"
         android:layout_width="wrap_content"
@@ -20,7 +27,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/ic_back_arrow"/>
+        android:src="@drawable/ic_back_arrow"
+        android:contentDescription="TODO" />
     <TextView
         android:id="@+id/second_title"
         android:layout_width="match_parent"

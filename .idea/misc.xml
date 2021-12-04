@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/CapstoneProjectPB/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/CapstoneProjectPB/app/src/main/res/layout/activity_second.xml" value="0.1" />
+        <entry key="..\:/CapstoneProjectPB/app/src/main/res/layout/item_hotel.xml" value="0.2708333333333333" />
+        <entry key="..\:/CapstoneProjectPB/app/src/main/res/layout/list_item.xml" value="0.2708333333333333" />
         <entry key="..\:/Users/user/AndroidStudioProjects/CapstoneProjectPB/app/src/main/res/drawable/ic_action_pass.xml" value="0.1" />
         <entry key="..\:/Users/user/AndroidStudioProjects/CapstoneProjectPB/app/src/main/res/drawable/ic_action_user.xml" value="0.1" />
         <entry key="..\:/Users/user/AndroidStudioProjects/CapstoneProjectPB/app/src/main/res/layout/activity_about.xml" value="0.1" />

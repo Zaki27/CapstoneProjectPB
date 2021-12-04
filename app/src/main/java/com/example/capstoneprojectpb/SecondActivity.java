@@ -16,11 +16,24 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+
+
+import com.example.capstoneprojectpb.model.Result;
+
 public class SecondActivity extends AppCompatActivity {
-    ImageView second_back_arrow, second_arrow_up;
+    public static final String EXTRA_MOVIE = "string_extra" ;
+    ImageView second_back_arrow, second_arrow_up, imgFilmDetail;
     TextView second_title, second_subtitle, second_rating_number, second_rating_number2, more_details;
     RatingBar second_ratingbar;
     Animation from_left, from_right, from_bottom;
+    Result result;
+    double nilai, populer;
+    Boolean adult;
+    String imageDetail, imageBackgroundDetail, rilisFilm, title, story;
+
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +46,39 @@ public class SecondActivity extends AppCompatActivity {
         second_rating_number = findViewById(R.id.second_rating_number);
         second_rating_number2 = findViewById(R.id.second_rating_number2);
         more_details = findViewById(R.id.more_details);
+        imgFilmDetail = findViewById(R.id.imgFilmDetail);
         second_ratingbar = findViewById(R.id.second_ratingbar);
+
+
+
+        result = getIntent().getParcelableExtra(EXTRA_MOVIE);
+
+        //ambil data dari API
+        nilai = result.getVoteAverage();
+        title = result.getOriginalTitle();
+        imageDetail = result.getPosterPath();
+        imageBackgroundDetail = result.getPosterPath();
+        rilisFilm = result.getReleaseDate();
+        story = result.getOverview();
+
+
+        //tarok data api di aplikasi
+        second_rating_number.setText(nilai + "/10");
+        second_title.setText(title);
+        second_subtitle.setText(story);
+        second_rating_number2.setText(rilisFilm);
+
+
+        //rating film dalam bentuk bintang
+        float newValue = (float)nilai;
+        second_ratingbar.setNumStars(5);
+        second_ratingbar.setStepSize((float) 0.5);
+        second_ratingbar.setRating(newValue / 2);
+
+        Glide.with(this)
+                .load("https://image.tmdb.org/t/p/w780/" + imageDetail)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(imgFilmDetail);
         second_back_arrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
