@@ -130,13 +130,9 @@ public class MainActivity extends AppCompatActivity {
                 {
 
                     case R.id.nav_home:
-                        Toast.makeText(MainActivity.this, "Home is Clicked", Toast.LENGTH_SHORT).show();break;
+                        Toast.makeText(MainActivity.this, "You are Here", Toast.LENGTH_SHORT).show();break;
                     case R.id.nav_message:
-                        Toast.makeText(MainActivity.this, "Message is Clicked",Toast.LENGTH_SHORT).show();break;
-                    case R.id.synch:
-                        Toast.makeText(MainActivity.this, "Synch is Clicked",Toast.LENGTH_SHORT).show();break;
-                    case R.id.trash:
-                        Toast.makeText(MainActivity.this, "Trash is Clicked",Toast.LENGTH_SHORT).show();break;
+                        Toast.makeText(MainActivity.this, "Support is Clicked",Toast.LENGTH_SHORT).show();break;
                     case R.id.settings:
                         Toast.makeText(MainActivity.this, "Settings is Clicked",Toast.LENGTH_SHORT).show();break;
                     case R.id.nav_login:

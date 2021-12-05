@@ -62,11 +62,7 @@ public class AppVersionActivity extends AppCompatActivity {
                         Intent logActivity4 = new Intent(AppVersionActivity.this, MainActivity.class);
                         startActivity(logActivity4);break;
                     case R.id.nav_message:
-                        Toast.makeText(AppVersionActivity.this, "Message is Clicked",Toast.LENGTH_SHORT).show();break;
-                    case R.id.synch:
-                        Toast.makeText(AppVersionActivity.this, "Synch is Clicked",Toast.LENGTH_SHORT).show();break;
-                    case R.id.trash:
-                        Toast.makeText(AppVersionActivity.this, "Trash is Clicked",Toast.LENGTH_SHORT).show();break;
+                        Toast.makeText(AppVersionActivity.this, "Support is Clicked",Toast.LENGTH_SHORT).show();break;
                     case R.id.settings:
                         Toast.makeText(AppVersionActivity.this, "Settings is Clicked",Toast.LENGTH_SHORT).show();break;
                     case R.id.nav_login:
@@ -76,8 +72,7 @@ public class AppVersionActivity extends AppCompatActivity {
                         Intent logActivity2 = new Intent(AppVersionActivity.this, AboutActivity.class);
                         startActivity(logActivity2);break;
                     case R.id.nav_version:
-                        Intent logActivity3 = new Intent(AppVersionActivity.this, AppVersionActivity.class);
-                        startActivity(logActivity3);break;
+                        Toast.makeText(AppVersionActivity.this, "You are Here", Toast.LENGTH_SHORT).show();break;
                     default:
                         return true;
                 }

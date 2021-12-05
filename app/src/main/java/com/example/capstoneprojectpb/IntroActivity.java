@@ -56,9 +56,9 @@ public class IntroActivity extends AppCompatActivity {
 
 
         final List<ScreenItem> mList = new ArrayList<>();
-        mList.add(new ScreenItem("Daftar","Film","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, consectetur  consectetur adipiscing elit",R.drawable.obj1));
-        mList.add(new ScreenItem("Sinopsis","Film","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, consectetur  consectetur adipiscing elit",R.drawable.obj2));
-        mList.add(new ScreenItem("Rating","Film","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, consectetur  consectetur adipiscing elit",R.drawable.obj3));
+        mList.add(new ScreenItem("Daftar","Film","Bermiliaran film dari seluruh dunia dapat kamu jadikan list tontonanmu, hanya di happy movie",R.drawable.obj1));
+        mList.add(new ScreenItem("Sinopsis","Film","Lihat ringkasan singkat cerita dari film tontonanmu dengan melihat sinopsis yang lengkap di happie movie",R.drawable.obj2));
+        mList.add(new ScreenItem("Rating","Film","Saring film yang ingin Kamu tonton dengan melihat rating dari sebuah komunitas yang membuat database film yaitu TMBD",R.drawable.obj3));
 
         screenPager =findViewById(R.id.screen_viewpager);
         introViewPagerAdapter = new IntroViewPagerAdapter(this,mList);
@@ -131,14 +131,12 @@ public class IntroActivity extends AppCompatActivity {
     }
 
     private boolean restorePrefData() {
-
         SharedPreferences pref = getApplicationContext().getSharedPreferences("myPrefs",MODE_PRIVATE);
         Boolean isIntroActivityOpnendBefore = pref.getBoolean("isIntroOpnend",false);
         return  isIntroActivityOpnendBefore;
     }
 
     private void savePrefsData() {
-
         SharedPreferences pref = getApplicationContext().getSharedPreferences("myPrefs",MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
         editor.putBoolean("isIntroOpnend",true);

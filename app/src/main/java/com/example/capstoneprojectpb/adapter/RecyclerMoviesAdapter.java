@@ -24,7 +24,7 @@ public class RecyclerMoviesAdapter extends RecyclerView.Adapter<RecyclerMoviesAd
 
     private Context mContext;
     private List<Result> resultList;
-    private double Rating;
+    private double Rating,nilai;
 
     public RecyclerMoviesAdapter(Context mContext, List<Result> resultList) {
         this.mContext = mContext;
@@ -59,12 +59,14 @@ public class RecyclerMoviesAdapter extends RecyclerView.Adapter<RecyclerMoviesAd
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         final Result data = resultList.get(position);
-
+        nilai = data.getVoteAverage();
         Rating = data.getVoteAverage();
         holder.tvTitle.setText(resultList.get(position).getTitle());
-        holder.tvDesc.setText(resultList.get(position).getOverview());
+
 
         float newValue = (float)Rating;
+
+        holder.nilai.setText(nilai + "/10");
         holder.ratingBar.setNumStars(5);
         holder.ratingBar.setStepSize((float) 0.5);
         holder.ratingBar.setRating(newValue / 2);
@@ -80,7 +82,7 @@ public class RecyclerMoviesAdapter extends RecyclerView.Adapter<RecyclerMoviesAd
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         ImageView ivPoster;
-        TextView tvTitle, tvDesc;
+        TextView tvTitle, tvDesc, nilai;
         RelativeLayout relativeLayout;
         RatingBar ratingBar;
 
@@ -89,7 +91,7 @@ public class RecyclerMoviesAdapter extends RecyclerView.Adapter<RecyclerMoviesAd
 
             ivPoster = itemView.findViewById(R.id.view);
             tvTitle = itemView.findViewById(R.id.textView5);
-            tvDesc = itemView.findViewById(R.id.textView6);
+            nilai = itemView.findViewById(R.id.textView6);
             relativeLayout = itemView.findViewById(R.id.layoutMovieDetail);
             ratingBar = itemView.findViewById(R.id.ratingBar);
         }

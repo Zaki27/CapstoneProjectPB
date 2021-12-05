@@ -45,19 +45,14 @@ public class AboutActivity extends AppCompatActivity {
                         Intent logActivity4 = new Intent(AboutActivity.this, MainActivity.class);
                         startActivity(logActivity4);break;
                     case R.id.nav_message:
-                        Toast.makeText(AboutActivity.this, "Message is Clicked",Toast.LENGTH_SHORT).show();break;
-                    case R.id.synch:
-                        Toast.makeText(AboutActivity.this, "Synch is Clicked",Toast.LENGTH_SHORT).show();break;
-                    case R.id.trash:
-                        Toast.makeText(AboutActivity.this, "Trash is Clicked",Toast.LENGTH_SHORT).show();break;
+                        Toast.makeText(AboutActivity.this, "Support is Clicked",Toast.LENGTH_SHORT).show();break;
                     case R.id.settings:
                         Toast.makeText(AboutActivity.this, "Settings is Clicked",Toast.LENGTH_SHORT).show();break;
                     case R.id.nav_login:
                         Intent logActivity1 = new Intent(AboutActivity.this, Login.class);
                         startActivity(logActivity1);break;
                     case R.id.nav_about:
-                        Intent logActivity2 = new Intent(AboutActivity.this, AboutActivity.class);
-                        startActivity(logActivity2);break;
+                        Toast.makeText(AboutActivity.this, "You are Here", Toast.LENGTH_SHORT).show();break;
                     case R.id.nav_version:
                         Intent logActivity3 = new Intent(AboutActivity.this, AppVersionActivity.class);
                         startActivity(logActivity3);break;

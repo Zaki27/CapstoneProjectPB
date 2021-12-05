@@ -24,7 +24,7 @@ import com.example.capstoneprojectpb.model.Result;
 public class SecondActivity extends AppCompatActivity {
     public static final String EXTRA_MOVIE = "string_extra" ;
     ImageView second_back_arrow, imgFilmDetail;
-    TextView second_title, second_subtitle, second_rating_number, second_rating_number2;
+    TextView second_title, second_subtitle, second_rating_number;
     RatingBar second_ratingbar;
     Animation from_left, from_right, from_bottom;
     Result result;
@@ -41,8 +41,8 @@ public class SecondActivity extends AppCompatActivity {
         second_title = findViewById(R.id.second_title);
         second_subtitle = findViewById(R.id.second_subtitle);
         second_rating_number = findViewById(R.id.second_rating_number);
-        second_rating_number2 = findViewById(R.id.second_rating_number2);
-        imgFilmDetail = findViewById(R.id.imgFilmDetail);
+
+        imgFilmDetail = findViewById(R.id.imgFilm);
         second_ratingbar = findViewById(R.id.second_ratingbar);
 
         result = getIntent().getParcelableExtra(EXTRA_MOVIE);
@@ -52,14 +52,14 @@ public class SecondActivity extends AppCompatActivity {
         title = result.getOriginalTitle();
         imageDetail = result.getPosterPath();
         imageBackgroundDetail = result.getPosterPath();
-        rilisFilm = result.getReleaseDate();
+
         story = result.getOverview();
 
         //masukkan data api di aplikasi
         second_rating_number.setText(nilai + "/10");
         second_title.setText(title);
         second_subtitle.setText(story);
-        second_rating_number2.setText(rilisFilm);
+
 
         //rating film dalam bentuk bintang
         float newValue = (float)nilai;
@@ -102,6 +102,6 @@ public class SecondActivity extends AppCompatActivity {
         second_subtitle.setAnimation(from_right);
         second_ratingbar.setAnimation(from_left);
         second_rating_number.setAnimation(from_right);
-        second_rating_number2.setAnimation(from_right);
+
     }
 }
