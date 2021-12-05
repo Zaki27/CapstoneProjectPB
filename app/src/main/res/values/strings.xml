@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">CapstoneProjectPB</string>
-    <string name="desc_beston">Movie Desc
-    </string>
+    <string name="desc_beston">Movie Desc</string>
     <string name="name_hotel_beston">Movie Title</string>
 </resources>

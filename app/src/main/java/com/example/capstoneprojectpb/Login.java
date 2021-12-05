@@ -36,12 +36,6 @@ public class Login extends AppCompatActivity {
         TextView tvCreateAccount = (TextView)findViewById(R.id.tvCreateAccount);
 
         tvCreateAccount.setText(fromHtml("Belum memiliki akun? "));
-        tvCreateAccount.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Login.this, Register.class));
-            }
-        });
 
         TextView tvCreateAccount2 = (TextView)findViewById(R.id.tvCreateAccount2);
 

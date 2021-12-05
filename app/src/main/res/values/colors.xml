@@ -9,6 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="lighgrey">#989797</color>
     <color name="underline">#D8D6D6</color>
+
     <!-- colors for button style -->
 
     <color name="gradient_start_color">#4c84ff</color>
@@ -21,6 +22,10 @@
     <color name="intro_title_color">#000000</color>
     <color name="intro_description_color">#656565</color>
 
+
+    <!-- colors logo primary -->
+
+    <color name="logo">#59c1ee</color>
 
 
     <color name="colorPrimary">#000000</color>
