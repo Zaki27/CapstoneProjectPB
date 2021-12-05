@@ -24,7 +24,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/white"
                 app:navigationIcon="@drawable/ic_baseline_menu_24"
-                app:title="HC-TEL"
+                app:title="happy movie"
                 app:titleTextColor="#939393"
                 tools:visibility="visible" />
         </com.google.android.material.appbar.AppBarLayout>
