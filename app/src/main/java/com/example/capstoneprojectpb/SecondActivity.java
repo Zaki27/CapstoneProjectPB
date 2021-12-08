@@ -20,6 +20,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 
 import com.example.capstoneprojectpb.model.Result;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class SecondActivity extends AppCompatActivity {
     public static final String EXTRA_MOVIE = "string_extra" ;
@@ -31,6 +32,7 @@ public class SecondActivity extends AppCompatActivity {
     double nilai, populer;
     Boolean adult;
     String imageDetail, imageBackgroundDetail, rilisFilm, title, story;
+    FloatingActionButton Share;
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
@@ -41,7 +43,7 @@ public class SecondActivity extends AppCompatActivity {
         second_title = findViewById(R.id.second_title);
         second_subtitle = findViewById(R.id.second_subtitle);
         second_rating_number = findViewById(R.id.second_rating_number);
-
+        Share = findViewById(R.id.Share);
         imgFilmDetail = findViewById(R.id.imgFilm);
         second_ratingbar = findViewById(R.id.second_ratingbar);
 
@@ -103,5 +105,19 @@ public class SecondActivity extends AppCompatActivity {
         second_ratingbar.setAnimation(from_left);
         second_rating_number.setAnimation(from_right);
 
+        Share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.setType("text/plain");
+                String subject = result.getOriginalTitle();
+                String description = result.getOverview();
+                shareIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
+                shareIntent.putExtra(Intent.EXTRA_TEXT, subject + "\n\n" + description + "\n\n");
+                startActivity(Intent.createChooser(shareIntent, "Bagikan"));
+            }
+        });
+
     }
-}
+
+    }
